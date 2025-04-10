@@ -1,0 +1,257 @@
+:root {
+  --color-primary: #ffb55a;
+  --color-secondary: #23cd95;
+  --color-white: #ffffff;
+  --color-light: #f1f8fb;
+  --color-border: #d1d3d4;
+  --color-danger: #ff5c5c;
+  --color-text: #111111;
+  --color-muted: #a0a0a0;
+
+  --font-family: "Poppins", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(
+    var(--color-secondary) 50%,
+    var(--color-primary) 50%
+  );
+  font-family: var(--font-family);
+}
+
+.app {
+  width: min(95vw, 500px);
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30px;
+}
+
+.container {
+  background-color: var(--color-light);
+  padding: 30px 40px;
+  border-radius: 0.8em;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1em;
+  position: relative;
+  border-radius: 5px;
+}
+
+#wrapper input {
+  width: 100%;
+  font-family: var(--font-family);
+  background-color: transparent;
+  color: var(--color-text);
+  font-size: 0.9em;
+  border: none;
+  border-bottom: 2px solid var(--color-border);
+  padding: 1em 0.5em;
+}
+
+#wrapper input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+#wrapper button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+#tasks-container {
+  width: 100%;
+  margin-top: 1em;
+  padding: 1em 0.5em;
+  position: relative;
+  border-radius: 10px;
+}
+
+#tasks {
+  width: 100%;
+  margin-top: 1em;
+  position: relative;
+}
+
+.task {
+  background-color: var(--color-white);
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: 1fr 8fr 2fr 2fr;
+  align-items: center;
+  gap: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.05);
+  animation: fadeInSlideUp 0.4s ease-out;
+  cursor: pointer;
+}
+
+.task:not(:first-child) {
+  margin-top: 1em;
+}
+
+.task input[type="checkbox"] {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid #e1e1e1;
+  position: relative;
+}
+
+.task input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.task input[type="checkbox"]:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.task input[type="checkbox"]:checked::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 0.8em;
+  color: var(--color-white);
+  position: absolute;
+}
+
+.task span {
+  font-size: 15px;
+  font-weight: 400;
+  word-break: break-word;
+}
+
+.task button {
+  width: 100%;
+  padding: 10px 6px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  color: var(--color-white);
+}
+
+.task button i {
+  font-size: 1rem;
+}
+
+.edit {
+  background-color: var(--color-primary);
+}
+
+.delete {
+  background-color: var(--color-danger);
+}
+
+#pending-tasks {
+  text-align: center;
+  margin-bottom: 1em;
+  color: var(--color-text);
+  font-size: 0.95em;
+}
+
+#pending-tasks span {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: var(--color-muted);
+}
+
+#error {
+  display: none;
+  text-align: center;
+  background-color: var(--color-white);
+  color: var(--color-danger);
+  margin-top: 1.5em;
+  padding: 1em 0;
+  border-radius: 0.5em;
+}
+
+/* Task count styling */
+.count-container {
+  margin-top: 1.5em;
+  text-align: center;
+  color: var(--color-text);
+  font-size: 0.9em;
+  padding: 1em 0;
+}
+
+.count-value {
+  display: inline-block;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  #wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  #wrapper button {
+    padding: 0.8em;
+    font-size: 1rem;
+  }
+
+  .task {
+    grid-template-columns: 1fr 6fr 1fr 1fr;
+    font-size: 1rem;
+  }
+
+  .task button i {
+    font-size: 14px;
+  }
+
+  .task span {
+    font-size: 14px;
+  }
+
+  .task button {
+    padding: 0.5em 0;
+  }
+}

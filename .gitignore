@@ -1,0 +1,31 @@
+# Node modules (if you use npm or any bundler)
+node_modules/
+
+# Build / dist folders (for compiled output)
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# OS generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Environment files (if using any)
+.env
+
+# Cache folders
+.cache/
+.tmp/
+.vscode/
+
+# Dependency lock files (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
