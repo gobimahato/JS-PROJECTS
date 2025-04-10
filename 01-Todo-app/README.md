@@ -2,7 +2,7 @@
 
 A clean, modern Todo application built with HTML, CSS, and JavaScript.
 
-![Todo App Preview]("./img/preview.png")
+![Todo App Preview](/01-Todo-app/img/preview.png)
 
 ## Features
 
